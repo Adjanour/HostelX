@@ -17,8 +17,17 @@ from django.conf import settings
 from django.conf.urls.static import static
 from django.conf.urls import include, url
 from django.contrib import admin
+from django.urls import path
+from tasks import views
 
 urlpatterns = [
-   url(r'^admin/', admin.site.urls),
-   url(r'^', include('helloworld.urls')), 
-] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+    path('', views.index, name='index'),
+    path('add_task/', views.add_task, name='add_task'),
+    path('complete_task/<int:task_id>/', views.complete_task, name='complete_task'),
+    path('incomplete_task/<int:task_id>/', views.incomplete_task, name='incomplete_task'),
+]
+
+# urlpatterns = [
+#    url(r'^admin/', admin.site.urls),
+#    url(r'^', include('helloworld.urls')), 
+# ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

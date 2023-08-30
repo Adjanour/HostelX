@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 from datetime import datetime
 from tasks.models import Task
+from .forms import SignupForm
 
 def index(request):
     tasks = Task.objects.all()
@@ -35,3 +36,19 @@ def delete_task(request, task_id):
     task = Task.objects.get(id=task_id)
     task.delete()
     return redirect('index')
+
+
+def signup(request):
+    if request.method == 'POST':
+        form = SignupForm(request.POST)
+
+        if form.is_valid():
+            form.save()
+
+            return redirect('/login/')
+    else:
+        form = SignupForm()
+
+    return render(request, 'tasks/signup.html', {
+        'form': form
+    })

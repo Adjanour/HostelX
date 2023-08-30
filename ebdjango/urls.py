@@ -22,7 +22,7 @@ from django.urls import path
 from tasks import views
 
 urlpatterns = [
-     path('', views.signup, name='signup'),
+    path('', views.signup, name='signup'),
     path('login/', auth_views.LoginView.as_view(template_name='tasks/login.html'), name='login'),
     path('index/', views.index, name='index'),
     path('add_task/', views.add_task, name='add_task'),

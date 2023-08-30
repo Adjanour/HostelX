@@ -27,7 +27,6 @@ DEBUG = bool( os.environ.get('DJANGO_DEBUG', False) )
 
 ALLOWED_HOSTS = ['*']
 
-
 LOGIN_URL = '/login/'
 LOGIN_REDIRECT_URL = '/index/'
 
@@ -125,3 +124,4 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 STATIC_ROOT = 'static'
+STATICFILES_STORAGE = ('whitenoise.storage.CompressedManifestStaticFilesStorage')

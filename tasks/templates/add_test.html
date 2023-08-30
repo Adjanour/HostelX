@@ -1,0 +1,9 @@
+<h1>Add Test</h1>
+<form method="post" action="{% url 'add_test' %}">
+  {% csrf_token %}
+  <label for="description">Description:</label>
+  <input type="text" id="description" name="description" required><br>
+  <label for="test_date">Test Date:</label>
+  <input type="date" id="test_date" name="test_date" required><br>
+  <button type="submit">Add</button>
+</form>

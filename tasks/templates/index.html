@@ -9,6 +9,8 @@
             background-color: #f5f5f5;
             margin-left: 300px;
             margin-right: 300px;
+            
+            
         }
 
         h1 {
@@ -100,13 +102,6 @@
             transform: scale(1.05);
             
         }
-        .btn-del{
-            background-color: red;
-            border-radius:25px;
-            border-style:none;
-            color: white;
-            font-width:bold;
-        }
     </style>
 </head>
 <body>
@@ -122,7 +117,6 @@
             <div class="task-actions">
                 <a href="{% url 'complete_task' task.id %}">Mark as Complete</a>
                 <a href="{% url 'incomplete_task' task.id %}">Mark as Incomplete</a>
-                <a href="{% url 'delete_task' task.id %}"><button class="btn-del">Delete</button></a>
             </div>
         </li>
         {% endfor %}
